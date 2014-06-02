@@ -35,8 +35,13 @@ setup(
     zip_safe=False,
     install_requires=[
         'setuptools',
-        # -*- Extra requirements: -*-
+        'gites.db',
     ],
+    extras_require={
+        'test': [
+            'plone.app.testing',
+        ],
+    },
     entry_points="""
     # -*- Entry points: -*-
     """,
