@@ -14,3 +14,4 @@ buildout-cache/
 include/
 lib/
 local/
+coverage/
