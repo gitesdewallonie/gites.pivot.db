@@ -13,6 +13,7 @@ MySQL Installation (OSX)
     $ brew install mysql55
     $ sudo ln -s /usr/local/Cellar/mysql55/5.5.x/bin/mysql /usr/local/bin/mysql
     $ sudo ln -s /usr/local/Cellar/mysql55/5.5.x/bin/mysql.server /usr/local/bin/mysql.server
+    $ sudo ln -s /usr/local/Cellar/mysql55/5.5.x/bin/mysql_config /usr/local/bin/mysql_config
 
 start mysql
 -----------
