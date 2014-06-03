@@ -41,6 +41,7 @@ setup(
     extras_require={
         'test': [
             'plone.app.testing',
+            'affinitic.testing',
         ],
     },
     entry_points="""
