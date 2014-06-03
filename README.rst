@@ -28,4 +28,20 @@ securing mysql installation
 
     $ /usr/local/Cellar/mysql55/5.5.x/bin/mysql_secure_installation
 
+create pivot database
+---------------------
 
+.. code-block:: bash
+
+    $ mysql -u root
+
+.. code-block:: sql
+
+    mysql> CREATE DATABASE pivot;
+    Query OK, 1 row affected (0.00 sec)
+
+    mysql> CREATE USER 'pivot'@'localhost' IDENTIFIED BY 'password';
+    Query OK, 0 rows affected (0.00 sec)
+
+    mysql> GRANT ALL ON pivot.* TO 'pivot'@'localhost';
+    Query OK, 0 rows affected (0.00 sec)
