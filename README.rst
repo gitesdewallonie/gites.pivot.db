@@ -28,12 +28,15 @@ securing mysql installation
 
     $ /usr/local/Cellar/mysql55/5.5.x/bin/mysql_secure_installation
 
+Pivot Database
+==============
+
 create pivot database
 ---------------------
 
 .. code-block:: bash
 
-    $ mysql -u root
+    $ mysql -u root -p
 
 .. code-block:: sql
 
