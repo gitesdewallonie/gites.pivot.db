@@ -40,8 +40,9 @@ setup(
     ],
     extras_require={
         'test': [
-            'plone.app.testing',
             'affinitic.testing',
+            'gocept.testdb',
+            'plone.app.testing',
         ],
     },
     entry_points="""
