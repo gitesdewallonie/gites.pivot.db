@@ -9,5 +9,14 @@ Copyright by Affinitic sprl
 
 import sqlalchemy.ext.declarative
 
+from zope.component import getUtility
+
+from affinitic.db.interfaces import IDatabase
+
 
 DeclarativeBase = sqlalchemy.ext.declarative.declarative_base()
+
+
+def session():
+    db = getUtility(IDatabase, 'mysql')
+    return db.session
