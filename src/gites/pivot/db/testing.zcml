@@ -5,13 +5,6 @@
 
   <include package="zope.component" file="meta.zcml" />
   <include package="zope.component" file="configure.zcml" />
-  <include package="grokcore.component" file="meta.zcml"/>
-  <include package="affinitic.pwmanager" file="testing.zcml"/>
-
-  <passmgr:pwdfile name="pivot"
-                   filename="pivotpass"/>
-
-  <grok:grok package=".db" />
 
   <subscriber for="affinitic.db.interfaces.IMetadata
                    affinitic.db.interfaces.IMySQLDBInitialized"

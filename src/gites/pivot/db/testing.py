@@ -10,12 +10,22 @@ Copyright by Affinitic sprl
 from affinitic.db.interfaces import IDatabase
 from affinitic.testing import DatabaseTestCase
 from gites.db.testing import RDBLayer
+from gites.pivot.db.db import PivotDB
 from zope.component import getUtility
+from zope.component import provideUtility
 from zope.configuration import xmlconfig
 
+import gites.pivot.db
 import gocept.testdb
 import os
-import gites.pivot.db
+import sqlalchemy
+
+
+class PivotTestDB(PivotDB):
+
+    @property
+    def url(self):
+        return self.dsn
 
 
 class PivotRDBLayer(RDBLayer):
@@ -44,6 +54,11 @@ class PivotRDBLayer(RDBLayer):
                                    'pivot.sql')
         self.db = gocept.testdb.MySQL(schema_path=schema_file)
         self.db.create()
+        self.engine = sqlalchemy.create_engine(self.db.dsn)
+        self.engine.connect()
+        self.mysql = PivotTestDB()
+        self.mysql.dsn = self.db.dsn
+        provideUtility(self.mysql, IDatabase, 'mysql')
 
 PIVOT_RDB = PivotRDBLayer(name='PIVOT_RDB')
 
