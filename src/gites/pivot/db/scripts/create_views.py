@@ -16,7 +16,7 @@ import os
 
 
 def main():
-    desc = 'Create view hebergement_view into Pivot Database'
+    desc = 'Create view hebergement_view and contact_view into Pivot Database'
     parser = argparse.ArgumentParser(description=desc)
     args = parser.parse_args()
     parseZCML(gites.pivot.db, file='script.zcml')
@@ -31,11 +31,16 @@ class HebergementView(object):
 
     def process(self):
         session = getUtility(IDatabase, 'mysql').session
+
         schema_file = os.path.join(os.path.dirname(__file__),
                                    'hebergement_view.sql')
         query = open(schema_file).read()
-        result = session.execute(query)
-        print result.fetchall()
+        session.execute(query)
+
+        schema_file = os.path.join(os.path.dirname(__file__),
+                                   'contact_view.sql')
+        query = open(schema_file).read()
+        session.execute(query)
 
 
 def parseZCML(package, file='configure.zcml'):

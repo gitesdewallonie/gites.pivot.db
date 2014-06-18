@@ -47,6 +47,6 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'create_view_hebergement_view = gites.pivot.db.scripts.hebergement_view:main',
+            'create_views = gites.pivot.db.scripts.create_views:main',
         ]}
 )

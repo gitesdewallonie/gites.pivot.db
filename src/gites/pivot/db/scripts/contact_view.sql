@@ -1,4 +1,4 @@
-create view pivot.contact_view
+create or replace view pivot.contact_view
 as
 select pivot.tcontacts.id_contact,
        pivot.tcontacts.civilite,
