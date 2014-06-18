@@ -45,7 +45,8 @@ setup(
             'plone.app.testing',
         ],
     },
-    entry_points="""
-    # -*- Entry points: -*-
-    """,
+    entry_points={
+        'console_scripts': [
+            'create_view_hebergement_view = gites.pivot.db.scripts.hebergement_view:main',
+        ]}
 )
