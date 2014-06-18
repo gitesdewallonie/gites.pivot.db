@@ -14,7 +14,8 @@ from gites.pivot.db.content import HebergementView
 
 class TestHebergementView(testing.PivotDBTestCase):
     layer = testing.PIVOT_RDB
+    pivot_sql_file = ('toffres')
 
     def test_get_last_changes(self):
-        date = datetime.datetime(1, 06, 2014, 10, 10)
+        date = datetime(2014, 06, 1, 10, 10)
         result = HebergementView.get_last_changes(date)
