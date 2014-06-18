@@ -75,6 +75,8 @@ class HebergementView(PivotMappedClassBase):
     ch_nbr_lits_enfant = sa.Column('ch_nbr_lits_enfant', sa.Integer)
 
     @classmethod
-    def get_last_changes(self, date):
+    def get_last_changes(cls, date):
         """Return the modified lines since the given date"""
-        pass
+        query = cls._session().query()
+        query = query.filter(cls.nom == 'LA TURBINE')
+        return query.all()
