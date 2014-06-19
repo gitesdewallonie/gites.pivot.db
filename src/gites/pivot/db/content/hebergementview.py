@@ -77,7 +77,7 @@ class HebergementView(PivotMappedClassBase):
     def get_last_changes(cls, date):
         """Return the modified lines since the given date"""
         query = cls._session().query(cls)
-        query = query.filter(cls.date_modification >= date)
+        query = query.filter(cls.heb_date_modification >= date)
         return query.all()
 
     @property
