@@ -27,3 +27,8 @@ class ContactView(PivotMappedClassBase):
     gsm = sa.Column('gsm', sa.String(255))
     email = sa.Column('email', sa.String(255))
     url = sa.Column('url', sa.String(255))
+
+    @classmethod
+    def get_last_changes(cls, date):
+        """Return the modified lines since the given date"""
+        pass
