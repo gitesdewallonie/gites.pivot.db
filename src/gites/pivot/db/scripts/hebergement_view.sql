@@ -27,10 +27,6 @@ create or replace view hebergement_view
 as
 select toffres.codeCGT,
        toffres.nom,
-       toffres.nom_nl,
-       toffres.nom_en,
-       toffres.nom_de,
-       toffres.bce,
        toffres.rue,
        toffres.rue_cplt,
        toffres.numero,
