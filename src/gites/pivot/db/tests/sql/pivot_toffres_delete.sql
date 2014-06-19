@@ -1,1 +1,1 @@
-DELETE FROM pivot.toffres;
+DELETE FROM toffres;

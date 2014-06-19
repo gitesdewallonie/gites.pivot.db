@@ -1,18 +1,18 @@
-create or replace view pivot.contact_view
+create or replace view contact_view
 as
-select pivot.tcontacts.id_contact,
-       pivot.tcontacts.civilite,
-       pivot.tcontacts.nom,
-       pivot.tcontacts.prenom,
-       pivot.tcontacts.adresse,
-       pivot.tcontacts.numero,
-       pivot.tcontacts.boite,
-       pivot.tcontacts.cp,
-       pivot.tcontacts.commune,
-       pivot.tcontacts.telephone,
-       pivot.tcontacts.fax,
-       pivot.tcontacts.gsm,
-       pivot.tcontacts.email,
-       pivot.tcontacts.url
-from pivot.tcontacts
+select tcontacts.id_contact,
+       tcontacts.civilite,
+       tcontacts.nom,
+       tcontacts.prenom,
+       tcontacts.adresse,
+       tcontacts.numero,
+       tcontacts.boite,
+       tcontacts.cp,
+       tcontacts.commune,
+       tcontacts.telephone,
+       tcontacts.fax,
+       tcontacts.gsm,
+       tcontacts.email,
+       tcontacts.url
+from tcontacts
 order by id_contact;

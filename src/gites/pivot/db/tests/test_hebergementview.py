@@ -17,5 +17,6 @@ class TestHebergementView(testing.PivotDBTestCase):
     pivot_sql_file = ('toffres')
 
     def test_get_last_changes(self):
-        date = datetime(2014, 06, 1, 10, 10)
+        date = datetime(2014, 06, 1, 0, 0)
         result = HebergementView.get_last_changes(date)
+        self.assertEquals(len(result), 1)
