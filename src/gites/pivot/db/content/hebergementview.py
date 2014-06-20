@@ -64,14 +64,10 @@ class HebergementView(PivotMappedClassBase):
     heb_date_creation = sa.Column('date_creation', sa.Date)
     heb_date_modification = sa.Column('date_modification', sa.Date)
     fk_ttypesoffres_id_type_offre = sa.Column('fk_ttypesoffres_id_type_offre', sa.Integer)
-    heb_nbr_lits_sup = sa.Column('heb_nbr_lits_sup', sa.Integer)
-    heb_nbr_lits_simple = sa.Column('heb_nbr_lits_simple', sa.Integer)
-    heb_nbr_lits_double = sa.Column('heb_nbr_lits_double', sa.Integer)
-    heb_nbr_lits_enfant = sa.Column('heb_nbr_lits_enfant', sa.Integer)
-    ch_nbr_lits_sup = sa.Column('ch_nbr_lits_sup', sa.Integer)
-    ch_nbr_lits_simple = sa.Column('ch_nbr_lits_simple', sa.Integer)
-    ch_nbr_lits_double = sa.Column('ch_nbr_lits_double', sa.Integer)
-    ch_nbr_lits_enfant = sa.Column('ch_nbr_lits_enfant', sa.Integer)
+    nbr_lits_sup = sa.Column('nbr_lits_sup', sa.Integer)
+    nbr_lits_simple = sa.Column('nbr_lits_simple', sa.Integer)
+    nbr_lits_double = sa.Column('nbr_lits_double', sa.Integer)
+    nbr_lits_enfant = sa.Column('nbr_lits_enfant', sa.Integer)
 
     @classmethod
     def get_last_changes(cls, date):
