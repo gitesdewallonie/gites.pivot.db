@@ -68,6 +68,7 @@ class HebergementView(PivotMappedClassBase):
     nbr_lits_simple = sa.Column('nbr_lits_simple', sa.Integer)
     nbr_lits_double = sa.Column('nbr_lits_double', sa.Integer)
     nbr_lits_enfant = sa.Column('nbr_lits_enfant', sa.Integer)
+    code_interne_CGT = sa.Column('code_interne_CGT', sa.String(255))
 
     @classmethod
     def get_last_changes(cls, date):

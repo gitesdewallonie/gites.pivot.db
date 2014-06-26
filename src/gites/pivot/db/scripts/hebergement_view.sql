@@ -60,7 +60,8 @@ select toffres.codeCGT,
        heb_lits_view.heb_nbr_lits_sup as nbr_lits_sup,
        heb_lits_view.heb_nbr_lits_simple as nbr_lits_simple,
        heb_lits_view.heb_nbr_lits_double as nbr_lits_double,
-       heb_lits_view.heb_nbr_lits_enfant as nbr_lits_enfant
+       heb_lits_view.heb_nbr_lits_enfant as nbr_lits_enfant,
+       toffres.code_interne_CGT
 from toffres
     left join heb_lits_view
         on toffres.codeCGT = heb_lits_view.codeCGT
@@ -103,7 +104,8 @@ select toffres.codeCGT,
        ch_lits_view.ch_nbr_lits_sup as nbr_lits_sup,
        ch_lits_view.ch_nbr_lits_simple as nbr_lits_simple,
        ch_lits_view.ch_nbr_lits_double as nbr_lits_double,
-       ch_lits_view.ch_nbr_lits_enfant as nbr_lits_enfant
+       ch_lits_view.ch_nbr_lits_enfant as nbr_lits_enfant,
+       toffres.code_interne_CGT
 from toffres
     left join ch_lits_view
         on toffres.codeCGT = ch_lits_view.fk_toffres_codeCGT
