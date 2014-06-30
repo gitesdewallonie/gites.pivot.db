@@ -89,6 +89,7 @@ CREATE TABLE IF NOT EXISTS `toffres` (
 	`fk_toffres_codeCGT` VARCHAR(20) DEFAULT NULL,
 	`fk_toffres_codeCGT_mdt` VARCHAR(20) DEFAULT NULL,
 	`id_atoms` VARCHAR(255) DEFAULT NULL,
+    `code_interne_CGT` VARCHAR(255) DEFAULT NULL,
 	PRIMARY KEY (`codeCGT`),
 	KEY `fk_ttypesoffres_id_type_offre` (`fk_ttypesoffres_id_type_offre`),
 	KEY `fk_toffres_codeCGT` (`fk_toffres_codeCGT`),
