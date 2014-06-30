@@ -33,7 +33,7 @@ class ChLitsView(PivotMappedClassBase):
 class HebergementView(PivotMappedClassBase):
     __tablename__ = u'hebergement_view'
 
-    heb_code_cgt = sa.Column('codeCGT', sa.String(20), primary_key=True)
+    code_cgt_pivot = sa.Column('codeCGT', sa.String(20), primary_key=True)
     heb_nom = sa.Column('nom', sa.String(255))
     rue = sa.Column('rue', sa.String(255))
     rue_cplt = sa.Column('rue_cplt', sa.String(255))
@@ -68,7 +68,7 @@ class HebergementView(PivotMappedClassBase):
     nbr_lits_simple = sa.Column('nbr_lits_simple', sa.Integer)
     nbr_lits_double = sa.Column('nbr_lits_double', sa.Integer)
     nbr_lits_enfant = sa.Column('nbr_lits_enfant', sa.Integer)
-    code_interne_CGT = sa.Column('code_interne_CGT', sa.String(255))
+    heb_code_cgt = sa.Column('code_interne_CGT', sa.String(255))
 
     @classmethod
     def get_last_changes(cls, date):
