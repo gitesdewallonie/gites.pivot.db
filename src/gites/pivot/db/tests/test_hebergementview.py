@@ -25,3 +25,7 @@ class TestHebergementView(testing.PivotDBTestCase):
         result = HebergementView.first(heb_nom='LA TURBINE')
         description = u'Maison de caractère dans un site boisé et calme (9 ha)'
         self.assertEqual(description, result.heb_descriptif_fr)
+
+    def test_html_content(self):
+        result = HebergementView.first(heb_nom='LA TURBINE')
+        self.assertEqual(u'"Maison de caractère"', result.heb_descriptif_nl)

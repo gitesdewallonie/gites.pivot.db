@@ -6,8 +6,11 @@ Created by francois
 Licensed under the GPL license, see LICENCE.txt for more details.
 Copyright by Affinitic sprl
 """
-import sqlalchemy as sa
+
+from gites.pivot.db import utils
 from gites.pivot.db.mapper import PivotMappedClassBase
+
+import sqlalchemy as sa
 
 
 class HebLitsView(PivotMappedClassBase):
@@ -50,14 +53,14 @@ class HebergementView(PivotMappedClassBase):
     heb_cgt_cap_min = sa.Column('capacite1', sa.Integer)
     heb_cgt_cap_max = sa.Column('capacite2', sa.Integer)
     heb_cgt_nbre_chmbre = sa.Column('nbr_chambre', sa.Integer)
-    heb_descriptif_fr = sa.Column('descriptif', sa.Text)
-    heb_descriptif_nl = sa.Column('descriptif_nl', sa.Text)
-    heb_descriptif_uk = sa.Column('descriptif_en', sa.Text)
-    heb_descriptif_de = sa.Column('descriptif_de', sa.Text)
-    heb_pointfort_fr = sa.Column('points_forts', sa.Text)
-    heb_pointfort_nl = sa.Column('points_forts_nl', sa.Text)
-    heb_pointsfort_uk = sa.Column('points_forts_en', sa.Text)
-    heb_pointsfort_de = sa.Column('points_forts_de', sa.Text)
+    _heb_descriptif_fr = sa.Column('descriptif', sa.Text)
+    _heb_descriptif_nl = sa.Column('descriptif_nl', sa.Text)
+    _heb_descriptif_uk = sa.Column('descriptif_en', sa.Text)
+    _heb_descriptif_de = sa.Column('descriptif_de', sa.Text)
+    _heb_pointfort_fr = sa.Column('points_forts', sa.Text)
+    _heb_pointfort_nl = sa.Column('points_forts_nl', sa.Text)
+    _heb_pointsfort_uk = sa.Column('points_forts_en', sa.Text)
+    _heb_pointsfort_de = sa.Column('points_forts_de', sa.Text)
     heb_gid_access_tous = sa.Column('pmr_acceptes', sa.Boolean())
     heb_animal = sa.Column('animaux_admis', sa.Boolean())
     _heb_fumeur = sa.Column('non_fumeur', sa.Boolean())
@@ -93,3 +96,35 @@ class HebergementView(PivotMappedClassBase):
     @property
     def heb_fumeur(self):
         return not self._heb_fumeur
+
+    @property
+    def heb_descriptif_fr(self):
+        return utils.convert_html(self._heb_descriptif_fr)
+
+    @property
+    def heb_descriptif_nl(self):
+        return utils.convert_html(self._heb_descriptif_nl)
+
+    @property
+    def heb_descriptif_uk(self):
+        return utils.convert_html(self._heb_descriptif_uk)
+
+    @property
+    def heb_descriptif_de(self):
+        return utils.convert_html(self._heb_descriptif_de)
+
+    @property
+    def heb_pointfort_fr(self):
+        return utils.convert_html(self._heb_pointfort_fr)
+
+    @property
+    def heb_pointfort_nl(self):
+        return utils.convert_html(self._heb_pointfort_nl)
+
+    @property
+    def heb_pointsfort_uk(self):
+        return utils.convert_html(self._heb_pointsfort_uk)
+
+    @property
+    def heb_pointsfort_de(self):
+        return utils.convert_html(self._heb_pointsfort_de)
