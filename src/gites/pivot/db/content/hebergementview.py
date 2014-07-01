@@ -83,11 +83,11 @@ class HebergementView(PivotMappedClassBase):
             return
         value = self.rue
         if self.rue_cplt:
-            value = '{0} {1}'.format(value, self.rue_cplt)
+            value = u'{0} {1}'.format(value, self.rue_cplt)
         if self.numero:
-            value = '{0}, {1}'.format(value, self.numero)
+            value = u'{0}, {1}'.format(value, self.numero)
             if self.boite:
-                value = '{0}{1}'.format(value, self.boite)
+                value = u'{0}{1}'.format(value, self.boite)
         return value
 
     @property
