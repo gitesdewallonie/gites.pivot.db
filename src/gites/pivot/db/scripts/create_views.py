@@ -41,4 +41,8 @@ class HebergementView(object):
         schema_file = os.path.join(os.path.dirname(__file__),
                                    'contact_view.sql')
         query = open(schema_file).read()
+
+        schema_file = os.path.join(os.path.dirname(__file__),
+                                   'tarif_view.sql')
+        query = open(schema_file).read()
         session.execute(query)
