@@ -9,6 +9,7 @@ Copyright by Affinitic sprl
 
 from gites.pivot.db import utils
 from gites.pivot.db.mapper import PivotMappedClassBase
+from gites.pivot.db.content.contactview import ContactView
 
 import sqlalchemy as sa
 
@@ -128,3 +129,10 @@ class HebergementView(PivotMappedClassBase):
     @property
     def heb_pointsfort_de(self):
         return utils.convert_html(self._heb_pointsfort_de)
+
+    @classmethod
+    def get_first_contact(cls, session):
+        query = session.query(ContactView)
+        query = query.filter(ContactView.fk_toffres_codeCGT == cls.code_cgt_pivot)
+        query = query.order_by(ContactView.id_contact)
+        return query.first()

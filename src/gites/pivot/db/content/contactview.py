@@ -15,20 +15,35 @@ class ContactView(PivotMappedClassBase):
 
     id_contact = sa.Column('id_contact', sa.Integer, primary_key=True)
     civilite = sa.Column('civilite', sa.String(100))
-    nom = sa.Column('nom', sa.String(255))
-    prenom = sa.Column('prenom', sa.String(255))
+    pro_nom1 = sa.Column('nom', sa.String(255))
+    pro_prenom1 = sa.Column('prenom', sa.String(255))
     adresse = sa.Column('adresse', sa.String(255))
     numero = sa.Column('numero', sa.String(255))
     boite = sa.Column('boite', sa.String(20))
-    cp = sa.Column('cp', sa.String(40))
-    commune = sa.Column('commune', sa.String(255))
-    telephone = sa.Column('telephone', sa.String(255))
-    fax = sa.Column('fax', sa.String(255))
-    gsm = sa.Column('gsm', sa.String(255))
-    email = sa.Column('email', sa.String(255))
-    url = sa.Column('url', sa.String(255))
+    com_cp = sa.Column('cp', sa.String(40))
+    com_nom = sa.Column('commune', sa.String(255))
+    pro_tel_priv = sa.Column('telephone', sa.String(255))
+    pro_fax_priv = sa.Column('fax', sa.String(255))
+    pro_gsm1 = sa.Column('gsm', sa.String(255))
+    pro_email = sa.Column('email', sa.String(255))
+    pro_url = sa.Column('url', sa.String(255))
+    fk_toffres_codeCGT = sa.Column('fk_toffres_codeCGT', sa.String(20))
 
-    @classmethod
-    def get_last_changes(cls, date):
-        """Return the modified lines since the given date"""
-        pass
+    @property
+    def pro_adresse(self):
+        if not self.adresse:
+            return
+        value = self.adresse
+        if self.numero:
+            value = u'{0}, {1}'.format(value, self.numero)
+            if self.boite:
+                value = u'{0}{1}'.format(value, self.boite)
+        return value
+
+    @property
+    def civ_titre(self):
+        civ = {'Madame': 'Mme',
+               'Monsieur': 'M.',
+               'Monsieur et Madame': 'M. & Mme'}
+        civ = civ.get(self.civilite)
+        return civ or self.civilite
