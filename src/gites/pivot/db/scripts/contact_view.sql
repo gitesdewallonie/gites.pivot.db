@@ -13,6 +13,11 @@ select tcontacts.id_contact,
        tcontacts.fax,
        tcontacts.gsm,
        tcontacts.email,
-       tcontacts.url
+       tcontacts.url,
+       treloffrecontact.fk_toffres_codeCGT
 from tcontacts
+    left join treloffrecontact
+    on (tcontacts.id_contact = treloffrecontact.fk_tcontacts_id_contact
+    and treloffrecontact.type like 'Propri_taire')
+group by id_contact
 order by id_contact;
