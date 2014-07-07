@@ -89,6 +89,7 @@ CREATE TABLE IF NOT EXISTS `toffres` (
 	`fk_toffres_codeCGT` VARCHAR(20) DEFAULT NULL,
 	`fk_toffres_codeCGT_mdt` VARCHAR(20) DEFAULT NULL,
 	`id_atoms` VARCHAR(255) DEFAULT NULL,
+    `code_interne_CGT` VARCHAR(255) DEFAULT NULL,
 	PRIMARY KEY (`codeCGT`),
 	KEY `fk_ttypesoffres_id_type_offre` (`fk_ttypesoffres_id_type_offre`),
 	KEY `fk_toffres_codeCGT` (`fk_toffres_codeCGT`),
@@ -146,4 +147,21 @@ CREATE TABLE IF NOT EXISTS `tcontacts` (
 	`email` VARCHAR(255) DEFAULT NULL,
 	`url` VARCHAR(255) DEFAULT NULL,
 	PRIMARY KEY (`id_contact`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ;
+CREATE TABLE `ttarifs` (
+  `id_tarif` int(11) NOT NULL,
+  `categorie` int(1) DEFAULT NULL,
+  `type` varchar(255) DEFAULT NULL,
+  `type_nl` varchar(255) DEFAULT NULL,
+  `type_en` varchar(255) DEFAULT NULL,
+  `type_de` varchar(255) DEFAULT NULL,
+  `complement_info` text,
+  `complement_info_nl` text,
+  `complement_info_en` text,
+  `complement_info_de` text,
+  `date` date DEFAULT NULL,
+  `prix_min` float DEFAULT NULL,
+  `prix_max` float DEFAULT NULL,
+  `fk_toffres_codeCGT` varchar(20) NOT NULL,
+  PRIMARY KEY (`id_tarif`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ;

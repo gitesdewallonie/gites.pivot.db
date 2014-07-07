@@ -15,6 +15,8 @@ from zope.component import getUtility
 class PivotDB(MySQLDB):
     db = 'pivot'
     verbose = False
+    forceUnicode = True
+    encoding = 'utf-8'
 
     @property
     def url(self):

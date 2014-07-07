@@ -74,7 +74,8 @@ class PivotRDBLayer(RDBLayer):
             drop table contact_view;
             drop table hebergement_view;
             drop table heb_lits_view;
-            drop table ch_lits_view;""")
+            drop table ch_lits_view;
+            drop table tarif_view;""")
 
         contact_view_path = os.path.join(os.path.dirname(__file__), 'scripts',
                                          'contact_view.sql')
@@ -83,6 +84,10 @@ class PivotRDBLayer(RDBLayer):
         hebergement_view_path = os.path.join(os.path.dirname(__file__), 'scripts',
                                              'hebergement_view.sql')
         self.mysql.session.execute(open(hebergement_view_path).read())
+
+        tarif_view_path = os.path.join(os.path.dirname(__file__), 'scripts',
+                                       'tarif_view.sql')
+        self.mysql.session.execute(open(tarif_view_path).read())
 
 
 PIVOT_RDB = PivotRDBLayer(name='PIVOT_RDB')

@@ -67,6 +67,7 @@ from toffres
         on toffres.codeCGT = heb_lits_view.codeCGT
 /* Gite */
 where fk_ttypesoffres_id_type_offre = 2
+and code_interne_CGT is not null
 )
 UNION ALL
 (
@@ -111,5 +112,6 @@ from toffres
         on toffres.codeCGT = ch_lits_view.fk_toffres_codeCGT
 /* Chambre */
 where fk_ttypesoffres_id_type_offre = 3
+and code_interne_CGT is not null
 )
 order by codeCGT;

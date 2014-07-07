@@ -7,11 +7,12 @@ Licensed under the GPL license, see LICENCE.txt for more details.
 Copyright by Affinitic sprl
 """
 
+from affinitic.db.interfaces import IDatabase
+from gites.pivot.db.scripts.utils import parseZCML
+from zope.component import getUtility
+
 import argparse
 import gites.pivot.db
-from affinitic.db.interfaces import IDatabase
-from zope.configuration import xmlconfig
-from zope.component import getUtility
 import os
 
 
@@ -40,10 +41,8 @@ class HebergementView(object):
         schema_file = os.path.join(os.path.dirname(__file__),
                                    'contact_view.sql')
         query = open(schema_file).read()
+
+        schema_file = os.path.join(os.path.dirname(__file__),
+                                   'tarif_view.sql')
+        query = open(schema_file).read()
         session.execute(query)
-
-
-def parseZCML(package, file='configure.zcml'):
-    context = xmlconfig._getContext()
-    xmlconfig.include(context, file, package)
-    context.execute_actions()

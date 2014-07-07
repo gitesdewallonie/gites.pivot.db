@@ -34,9 +34,11 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        'setuptools',
-        'mysql-python',
+        'beautifulsoup4',
         'gites.db',
+        'mysql-python',
+        'paramiko',
+        'setuptools',
     ],
     extras_require={
         'test': [
@@ -48,5 +50,6 @@ setup(
     entry_points={
         'console_scripts': [
             'create_views = gites.pivot.db.scripts.create_views:main',
+            'get_archive = gites.pivot.db.scripts.archive:main',
         ]}
 )
