@@ -130,24 +130,26 @@ CREATE TABLE IF NOT EXISTS `thebergements` (
 	`nbr_sdeau` INT DEFAULT NULL,
 	PRIMARY KEY (`codeCGT`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ;
-CREATE TABLE IF NOT EXISTS `tcontacts` (
-	`id_contact` INT NOT NULL,
-	`civilite` VARCHAR(100) DEFAULT NULL,
-	`nom` VARCHAR(255) DEFAULT NULL,
-	`prenom` VARCHAR(255) DEFAULT NULL,
-	`adresse` VARCHAR(255) DEFAULT NULL,
-	`numero` VARCHAR(255) DEFAULT NULL,
-	`boite` VARCHAR(20) DEFAULT NULL,
-	`cp` VARCHAR(40) DEFAULT NULL,
-	`localite` VARCHAR(255) DEFAULT NULL,
-	`commune` VARCHAR(255) DEFAULT NULL,
-	`telephone` VARCHAR(255) DEFAULT NULL,
-	`fax` VARCHAR(255) DEFAULT NULL,
-	`gsm` VARCHAR(255) DEFAULT NULL,
-	`email` VARCHAR(255) DEFAULT NULL,
-	`url` VARCHAR(255) DEFAULT NULL,
-	PRIMARY KEY (`id_contact`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ;
+CREATE TABLE `tcontacts` (
+  `id_contact` int(11) NOT NULL,
+  `civilite` varchar(100) DEFAULT NULL,
+  `nom` varchar(255) DEFAULT NULL,
+  `prenom` varchar(255) DEFAULT NULL,
+  `adresse` varchar(255) DEFAULT NULL,
+  `numero` varchar(255) DEFAULT NULL,
+  `boite` varchar(20) DEFAULT NULL,
+  `id_ins` int(11) DEFAULT NULL,
+  `ins` varchar(20) DEFAULT NULL,
+  `cp` varchar(40) DEFAULT NULL,
+  `localite` varchar(255) DEFAULT NULL,
+  `commune` varchar(255) DEFAULT NULL,
+  `telephone` varchar(255) DEFAULT NULL,
+  `fax` varchar(255) DEFAULT NULL,
+  `gsm` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `url` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_contact`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 CREATE TABLE `ttarifs` (
   `id_tarif` int(11) NOT NULL,
   `categorie` int(1) DEFAULT NULL,
@@ -165,3 +167,15 @@ CREATE TABLE `ttarifs` (
   `fk_toffres_codeCGT` varchar(20) NOT NULL,
   PRIMARY KEY (`id_tarif`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ;
+CREATE TABLE `treloffrecontact` (
+  `fk_toffres_codeCGT` varchar(20) NOT NULL,
+  `fk_tcontacts_id_contact` int(11) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `type_nl` varchar(255) DEFAULT NULL,
+  `type_en` varchar(255) DEFAULT NULL,
+  `type_de` varchar(255) DEFAULT NULL,
+  KEY `fk_toffres_codeCGT` (`fk_toffres_codeCGT`),
+  KEY `fk_tcontacts_id_contact` (`fk_tcontacts_id_contact`),
+  CONSTRAINT `treloffrecontact_ibfk_2` FOREIGN KEY (`fk_tcontacts_id_contact`) REFERENCES `tcontacts` (`id_contact`),
+  CONSTRAINT `treloffrecontact_ibfk_1` FOREIGN KEY (`fk_toffres_codeCGT`) REFERENCES `toffres` (`codeCGT`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
