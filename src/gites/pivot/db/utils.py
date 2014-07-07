@@ -11,5 +11,6 @@ from bs4 import BeautifulSoup
 
 
 def convert_html(value):
-    if value:
-        return unicode(BeautifulSoup(value))
+    if value is None:
+        return None
+    return unicode(BeautifulSoup(value))
