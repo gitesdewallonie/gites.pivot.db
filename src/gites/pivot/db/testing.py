@@ -75,6 +75,7 @@ class PivotRDBLayer(RDBLayer):
             drop table hebergement_view;
             drop table heb_lits_view;
             drop table ch_lits_view;
+            drop table tarif_valid_view;
             drop table tarif_view;""")
 
         contact_view_path = os.path.join(os.path.dirname(__file__), 'scripts',
