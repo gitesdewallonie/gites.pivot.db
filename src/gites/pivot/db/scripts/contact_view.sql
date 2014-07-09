@@ -14,10 +14,14 @@ select tcontacts.id_contact,
        tcontacts.gsm,
        tcontacts.email,
        tcontacts.url,
-       treloffrecontact.fk_toffres_codeCGT
+       treloffrecontact.fk_toffres_codeCGT,
+       toffres.code_interne_CGT
 from tcontacts
-    left join treloffrecontact
-    on (tcontacts.id_contact = treloffrecontact.fk_tcontacts_id_contact
-    and treloffrecontact.type like 'Propri_taire')
+    join treloffrecontact
+        on (tcontacts.id_contact = treloffrecontact.fk_tcontacts_id_contact
+        and treloffrecontact.type like 'Propri_taire')
+    join toffres
+        on treloffrecontact.fk_toffres_codeCGT = toffres.codeCGT
+where tcontacts.nom != 'DUBLET'
 group by id_contact
 order by id_contact;

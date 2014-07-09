@@ -28,6 +28,7 @@ class ContactView(PivotMappedClassBase):
     pro_email = sa.Column('email', sa.String(255))
     pro_url = sa.Column('url', sa.String(255))
     fk_toffres_codeCGT = sa.Column('fk_toffres_codeCGT', sa.String(20))
+    code_interne_CGT = sa.Column('code_interne_CGT', sa.String(255))
 
     @property
     def pro_adresse(self):
