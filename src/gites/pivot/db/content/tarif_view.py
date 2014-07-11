@@ -7,9 +7,7 @@ Licensed under the GPL license, see LICENCE.txt for more details.
 Copyright by Affinitic sprl
 """
 import sqlalchemy as sa
-from affinitic.db import mapper
 from gites.pivot.db.mapper import PivotMappedClassBase
-from gites.pivot.db.content.hebergementview import HebergementView
 
 
 class TarifValidView(PivotMappedClassBase):
