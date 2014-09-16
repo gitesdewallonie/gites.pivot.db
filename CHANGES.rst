@@ -4,7 +4,7 @@ Changelog
 0.1.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix get_archive script : #5839
 
 
 0.1 (2014-08-12)

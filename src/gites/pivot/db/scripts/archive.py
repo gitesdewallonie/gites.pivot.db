@@ -27,7 +27,7 @@ def main():
 
     args = parser.parse_args()
     pivot_archive = PivotArchive(args.path, args.server, args.user)
-    return pivot_archive.get()
+    print pivot_archive.get()
 
 
 class PivotArchive(object):
